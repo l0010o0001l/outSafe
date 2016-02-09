@@ -1,0 +1,17 @@
+-# this needs to be all cut3sy and show address on map
+.container#party-index
+  .col-md-4
+    %p#notice= notice
+    %p
+      %strong Title:
+      = @party.title
+    %p
+      %strong Address:
+      = @party.address
+    %p
+      %strong Min age:
+      = @party.min_age
+    -# if  current_user is the host, they can edit!
+    = link_to 'edit', edit_party_path(@party)
+    |
+    = link_to 'back', parties_path

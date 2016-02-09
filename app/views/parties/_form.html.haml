@@ -1,0 +1,24 @@
+= form_for(@party) do |f|
+  - if @party.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@party.errors.count, "error")
+        prohibited this party from being saved:
+      %ul
+        - @party.errors.full_messages.each do |message|
+          %li= message
+  .field
+    .form-group
+      = f.label :title, 'title'
+      = f.text_field :title, class: 'form-control'
+  .field
+    .form-group
+      = f.label :address, 'address'
+      = f.text_field :address, class: 'form-control'
+  .field
+    .form-group
+      = f.label :min_age, 'minimum age'
+      = f.number_field :min_age, class: 'form-control'
+  .actions.back
+  -# if current_user.profile.host?
+  = f.submit 'create party', class: 'btn btn-primary'

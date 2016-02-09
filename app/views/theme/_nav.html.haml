@@ -1,0 +1,36 @@
+%nav.navbar.navbar-default.app-nav
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#collapse-like-crazy", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .navbar-brand
+        - if user_signed_in?
+          = link_to parties_path do
+            %h4 outSafe
+
+        - else
+          = link_to '/' do
+            %h4 outSafe
+    .collapse.navbar-collapse#collapse-like-crazy
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li
+            = link_to 'parties', parties_path
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              profile
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                = link_to 'view', profile_path
+              %li
+                = link_to 'edit', profile_edit_path
+          %li
+            = link_to 'settings', edit_user_registration_path
+          %li
+            = link_to sign_out_path do
+              sign out
+              %i.fa.fa-sign-out

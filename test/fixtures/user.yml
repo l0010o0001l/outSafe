@@ -1,0 +1,4 @@
+test_user:
+  email: test@outsafe.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  active: true

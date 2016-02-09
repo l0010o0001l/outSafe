@@ -1,0 +1,10 @@
+test_profile:
+  fname: Test
+  lname: Crazy
+  username: testerific
+  location: Portland, OR
+  gender: Other
+  about: I come from a land down under.
+  host: t
+  guest: t
+  user: test_user

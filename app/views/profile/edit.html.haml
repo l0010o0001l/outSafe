@@ -1,0 +1,63 @@
+.container
+  %h3 Edit Profile
+  .row
+    .col-md-4
+      = form_for(current_user, url: profile_path, html: { method: :put }) do |f|
+        %input{name: "action_page", value: "profile_edit", type: "hidden"}
+        - if current_user.errors.any?
+          .alert-container
+            %h4= pluralize(current_user.errors.count, "error!")
+            %ul.alert
+              - current_user.errors.full_messages.each do |message|
+                %li= message
+        .field{style: 'margin-top: 15px;'}
+          .form-group
+            - if f.object.avatar.exists?
+              = image_tag f.object.avatar.url(:medium)
+            - else
+              = image_tag 'missing.png'
+            %br
+            %br
+            = f.label :avatar, 'profile pic'
+            = f.file_field :avatar, class: 'form-control'
+
+        = f.fields_for(:profile, multipart: true) do |builder|
+          .field
+            .form-group
+              = builder.label :fname, 'first name'
+              = builder.text_field :fname, class: 'form-control'
+          .field
+            .form-group
+              = builder.label :lname, 'last name'
+              = builder.text_field :lname, class: 'form-control'
+          .field
+            .form-group
+              = builder.label :username, 'username'
+              = builder.text_field :username, class: 'form-control'
+          .field
+            .form-group
+              = builder.label :location, 'location'
+              = builder.text_field :location, class: 'form-control'
+          .field
+            .form-group
+              = builder.label :gender, 'gender'
+              = builder.select(:gender, %w[Male Female Other], {prompt: '---'}, class: "form-control")
+          .field
+            .form-group
+              = builder.label :about, 'about'
+              = builder.text_area :about, :maxlength => 200, class: 'form-control'
+          .field
+            .form-group
+              = builder.label :guest, 'Guest?'
+              = builder.check_box :guest
+          .field
+            .form-group
+              = builder.label :host, 'Host?'
+              = builder.check_box :host
+        .actions
+          = f.submit 'update', class: 'btn btn-primary'
+
+      %h3{style: 'margin-top: 30px;'} Deactivate
+      #{button_to "goodbye", @user, data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-primary'}
+  .row.back
+    = link_to '<< Back', profile_path

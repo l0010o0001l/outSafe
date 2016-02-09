@@ -1,0 +1,9 @@
+language:
+  - ruby
+services:
+  - postgresql
+addons:
+  postgresql: "9.3"
+before_script:
+  - psql -c "create role outsafe with superuser createdb login;" -U postgres
+  - psql -c "create database outsafe;" -U postgres

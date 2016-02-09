@@ -1,0 +1,7 @@
+.container
+  .col-md-4
+    %h3= "Edit #{@party.title}"
+    = render 'form'
+    = link_to 'view', @party
+    |
+    = link_to 'back', parties_path

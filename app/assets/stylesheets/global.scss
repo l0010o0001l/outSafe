@@ -1,0 +1,372 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+/* vars */
+
+  // colorz
+$inputBg: #2C2A37;
+$fade: #53566D;
+$limeGreen: #77FF8D;
+$navBg: #1F1D28;
+$navBord: #3B3B3B;
+$navBrand: #91D19B;
+$navBtn: #DDD;
+$grey: rgb(133, 133, 133);
+$orange: #FF7D45;
+$mauve: #D10649;
+$danger: #C80000;
+$lightDanger: #FFD6D6;
+$purple: #8474A7;
+
+  // fonts
+$baseFont: "Helvetica Neue",Helvetica,Arial,sans-serif;
+$roboto: 'Roboto', sans-serif;
+  // mediaz
+$phone: "(max-width:620px)";
+$tablet: "(min-width: 621px) and (max-width: 992px)";
+$desktop: "(min-width: 993px)";
+
+
+
+/* mixins */
+@mixin ind-pos {
+  display: table;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  background: fixed;
+  background: no-repeat center fixed;
+  -webkit-background-size: cover;
+}
+
+@mixin header-text {
+  font-family: $roboto;
+}
+
+@mixin textPlusLinks {
+  font-size: 0.9em;
+  font-family: $baseFont;
+  letter-spacing: 1px;
+}
+
+@mixin follow {
+  text-decoration: none;
+  position: absolute;
+  left: 35%;
+  width: 30%;
+  height: 15%;
+  background-color: $fade;
+  padding: 10px;
+  padding-top: 6px;
+  color: #fff !important;
+  text-align: center;
+  font-size: 20px;
+  font-family: $roboto;
+  border: 4px solid $fade;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: #292445;
+  td, th {
+    @include textPlusLinks;
+    color: #fff;
+  }
+  .navbar {
+    margin-bottom: 0;
+  }
+  .navbar-default {
+    background-color: $navBg;
+    border-color: $navBord;
+  }
+  .navbar-default .navbar-collapse {
+    border-color: $navBord;
+  }
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: $fade;
+  }
+  .navbar-nav > li > .dropdown-menu {
+    background-color: $fade;
+  }
+  .dropdown-menu > li > a:hover {
+    background-color: $fade;
+  }
+  .navbar-header > button {
+    background-color: $navBtn;
+    border: none;
+    &:hover {
+      background-color: $orange !important;
+    }
+    .icon-bar {
+      background-color: $mauve !important;
+    }
+  }
+  .navbar-brand {
+    float: left;
+    padding: 6px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 50px;
+    h4 {
+      @include header-text;
+      letter-spacing: 4px;
+      color: $navBrand;
+    }
+  }
+
+  .back {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    @include header-text;
+    letter-spacing: 8px;
+    color: $limeGreen;
+    text-shadow: 0px 0px 10px #00FF25;
+    -webkit-text-stroke: 1.5px white;
+    font-weight: 900;
+    font-size: 4em;
+  }
+
+  h2 {
+    color: $mauve;
+  }
+
+  h3 {
+    color: $purple;
+    font-family: $roboto;
+  }
+
+  h4 {
+    color: $limeGreen;
+    font-family: $roboto;
+  }
+
+  a {
+    @include textPlusLinks;
+    color: $mauve !important;
+    &:hover {
+      color: $limeGreen !important;
+    }
+  }
+
+  p {
+    @include textPlusLinks;
+    color: #fff;
+  }
+
+  span {
+    font-family: $roboto;
+    font-size: 13px;
+  }
+
+  .actions {
+    margin-top: 30px;
+  }
+
+  .alert-container {
+    background-color: #710000;
+    border-radius: 6px;
+    padding: 10px;
+    li {
+      color: #fff;
+    }
+  }
+  .alert {
+    margin-bottom: 0;
+    li {
+      list-style-type: none;
+      font-size: 12px;
+      font-family: $baseFont;
+    }
+  }
+
+  .alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+  }
+
+  .alert-alert {
+      background-color: #f2dede;
+      border-color: #eed3d7;
+      color: #b94a48;
+      text-align: left;
+   }
+
+  .alert-success {
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+      color: #468847;
+      text-align: left;
+   }
+
+  .alert-notice {
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+      color: #468847;
+      text-align: left;
+   }
+
+  form {
+    label, a {
+      font-size: 0.7em;
+      font-family: $baseFont;
+      letter-spacing: 1px;
+      color: $orange;
+    }
+    a:hover {
+      color: $limeGreen;
+    }
+    .form-control {
+      background-color: $inputBg;
+      border: 1px solid $fade;
+      font-size: 0.8em;
+      font-family: $baseFont;
+      letter-spacing: 1px;
+      color: #E0E0E0;
+      &:focus {
+        border-color: $limeGreen;
+      }
+    }
+    .btn-primary {
+      color: $orange;
+      font-size: 0.8em;
+      letter-spacing: 1px;
+      background-color: $inputBg;
+      border-color: $fade;
+      &:hover {
+        color: $orange;
+        background: $limeGreen;
+      }
+    }
+    textarea {
+      height: 100px;
+    }
+  }
+}
+
+@media #{$phone} {
+  .logo {
+    @include ind-pos;
+    margin: 100px 0;
+  }
+}
+@media #{$tablet} {
+  .logo {
+    @include ind-pos;
+    margin: 100px 0;
+  }
+}
+@media #{$desktop} {
+  .logo {
+    @include ind-pos;
+    margin: 150px 0;
+  }
+}
+
+/* profile */
+
+#profile {
+  .follow {
+    @include follow;
+    top: 42.5%;
+    &:hover {
+      border: 4px solid $purple;
+    }
+  }
+
+  @media #{$tablet} {
+    .follow {
+      @include follow;
+      top: 20%;
+    }
+  }
+
+  @media #{$phone} {
+    .follow {
+      @include follow;
+      top: 20%;
+    }
+  }
+
+  .bg-prof {
+    background: url(asset-path('500x300.png'));
+    height: 300px;
+    background-size: cover;
+  }
+
+  #down {
+    font-size: 2em;
+    color: #FF5858;
+    margin-top: 15px;
+  }
+
+  #up {
+    font-size: 2em;
+    color: #49B549;
+    margin-top: 15px;
+  }
+
+  .panel {
+    background-color: #1F1D28;
+    border-color:#404040;
+    border-radius:5px;
+  }
+
+  @media #{$tablet} {
+    .panel {
+      margin-top: 20px;
+    }
+  }
+
+  @media #{$desktop} {
+    .panel {
+      margin-top: 20px;
+    }
+  }
+
+  .pic {
+    height:150px;
+    width: 150px;
+    position: absolute;
+    top: 75px;
+    left: -75px;
+  }
+
+  .m-pic {
+    position: absolute;
+    width: 30%;
+    left: 35%;
+    bottom: 80%;
+  }
+
+  .header {
+    color : #808080;
+    margin-left: 15%;
+    margin-top: 70px;
+  }
+
+  @media #{$tablet} {
+    .header {
+      text-align: center;
+      margin-left: 0;
+      margin-bottom: 40px;
+    }
+  }
+
+  @media #{$phone} {
+    .header {
+      margin-left: 0;
+      margin-bottom: 30px;
+    }
+  }
+}

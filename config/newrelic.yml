@@ -1,0 +1,35 @@
+# This configuration file is custom generated for app26453606@heroku.com
+#
+# For full documentation of agent configuration options, please refer to
+# https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
+
+common: &default_settings
+  license_key: 3f646aa19242781936855598dd92672c1804379a
+  app_name: outSafe
+  # To disable the agent regardless of other settings, uncomment the following:
+  # agent_enabled: false
+  log_level: info
+  monitor_mode: true
+  developer_mode: false
+# Environment-specific settings are in this section.
+# RAILS_ENV or RACK_ENV (as appropriate) is used to determine the environment.
+# If your application has other named environments, configure them here.
+development:
+  <<: *default_settings
+  app_name: outSafe (Development)
+
+  # NOTE: There is substantial overhead when running in developer mode.
+  # Do not use for production or load testing.
+  developer_mode: true
+
+test:
+  <<: *default_settings
+  # It doesn't make sense to report to New Relic from automated test runs.
+  monitor_mode: false
+
+staging:
+  <<: *default_settings
+  app_name: outSafe (Staging)
+
+production:
+  <<: *default_settings

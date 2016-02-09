@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: outsafe-dev
+  host: localhost
+  pool: 5
+  username: outsafe
+  password: password
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: outsafe
+  host: localhost
+  pool: 5
+  timeout: 5000
+  username: outsafe
+  password: password
+
+staging:
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
+
+production:
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>

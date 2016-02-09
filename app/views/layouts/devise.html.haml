@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title outSafe
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{content: "utf-8"}
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes", :name => "viewport"}
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", :rel => "stylesheet"}
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'devise', media: 'all', 'data-turbolinks-track' => true
+
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = favicon_link_tag 'moon-fav.png'
+    = csrf_meta_tags
+  %body
+    = render 'theme/nav'
+    = render 'layouts/messages'
+    = yield
