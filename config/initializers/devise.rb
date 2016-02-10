@@ -1,7 +1,7 @@
 
 Devise.setup do |config|
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   require 'devise/orm/active_record'
+  # config.mailer_sender = ''
   config.case_insensitive_keys = [:email]
   config.strip_whitespace_keys = [:email]
   config.skip_session_storage = [:http_auth]
@@ -10,7 +10,7 @@ Devise.setup do |config|
   config.password_length = 8..72
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
-  config.omniauth :facebook, ENV["facebook_app_id"], ENV["facebook_secret"], :scope => 'user:email'
+  config.omniauth :facebook
   config.warden do |manager|
     manager.failure_app = CustomFailure
   end

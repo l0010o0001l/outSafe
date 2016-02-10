@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   devise_for :users, controllers: {
-    :registrations => :registrations
-    # :omniauth_callbacks => "callbacks"
+    :registrations => :registrations,
+    :omniauth_callbacks => "callbacks"
   }
 
   resources :parties
-  #
+
   as :user do
     get 'profile' => 'profile#show'
     get 'profile/edit', :to => 'profile#edit'
