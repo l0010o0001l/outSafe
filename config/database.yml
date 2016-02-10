@@ -10,7 +10,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: outsafe
+  database: outsafe-test
   host: localhost
   pool: 5
   timeout: 5000
