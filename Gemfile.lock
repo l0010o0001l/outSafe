@@ -276,7 +276,6 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   newrelic_rpm
-  omniauth
   omniauth-facebook
   paperclip
   pg
