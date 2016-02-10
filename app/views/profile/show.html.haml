@@ -5,9 +5,10 @@
       %i.fa.fa-thumbs-down#down
       %a.follow{href: "#"} follow
     .col-md-8.col-xs-12
-      - if current_user.avatar.exists?
-        = image_tag current_user.avatar.url(:square), class: 'pic hidden-xs'
-        = image_tag current_user.avatar.url(:square), class: 'm-pic visible-xs'
+      -# Dry this up...
+      - if current_user.profile.avatar.exists?
+        = image_tag current_user.profile.avatar.url(:square), class: 'pic hidden-xs'
+        = image_tag current_user.profile.avatar.url(:square), class: 'm-pic visible-xs'
       - else
         = image_tag 'missing.png', class: 'pic hidden-xs'
         = image_tag 'missing.png', class: 'm-pic visible-xs'
