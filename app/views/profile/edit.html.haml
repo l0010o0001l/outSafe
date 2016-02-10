@@ -2,8 +2,7 @@
   %h3 Edit Profile
   .row
     .col-md-4
-      = form_for(current_user, url: profile_path, html: { method: :put }) do |f|
-        %input{name: "action_page", value: "profile_edit", type: "hidden"}
+      = form_for(current_user.profile, url: profile_path, html: { method: :put }) do |f|
         - if current_user.errors.any?
           .alert-container
             %h4= pluralize(current_user.errors.count, "error!")
@@ -21,39 +20,38 @@
             = f.label :avatar, 'profile pic'
             = f.file_field :avatar, class: 'form-control'
 
-        = f.fields_for(:profile, multipart: true) do |builder|
-          .field
-            .form-group
-              = builder.label :fname, 'first name'
-              = builder.text_field :fname, class: 'form-control'
-          .field
-            .form-group
-              = builder.label :lname, 'last name'
-              = builder.text_field :lname, class: 'form-control'
-          .field
-            .form-group
-              = builder.label :username, 'username'
-              = builder.text_field :username, class: 'form-control'
-          .field
-            .form-group
-              = builder.label :location, 'location'
-              = builder.text_field :location, class: 'form-control'
-          .field
-            .form-group
-              = builder.label :gender, 'gender'
-              = builder.select(:gender, %w[Male Female Other], {prompt: '---'}, class: "form-control")
-          .field
-            .form-group
-              = builder.label :about, 'about'
-              = builder.text_area :about, :maxlength => 200, class: 'form-control'
-          .field
-            .form-group
-              = builder.label :guest, 'Guest?'
-              = builder.check_box :guest
-          .field
-            .form-group
-              = builder.label :host, 'Host?'
-              = builder.check_box :host
+        .field
+          .form-group
+            = f.label :fname, 'first name'
+            = f.text_field :fname, class: 'form-control'
+        .field
+          .form-group
+            = f.label :lname, 'last name'
+            = f.text_field :lname, class: 'form-control'
+        .field
+          .form-group
+            = f.label :username, 'username'
+            = f.text_field :username, class: 'form-control'
+        .field
+          .form-group
+            = f.label :location, 'location'
+            = f.text_field :location, class: 'form-control'
+        .field
+          .form-group
+            = f.label :gender, 'gender'
+            = f.select(:gender, %w[Male Female Other], {prompt: '---'}, class: "form-control")
+        .field
+          .form-group
+            = f.label :about, 'about'
+            = f.text_area :about, :maxlength => 200, class: 'form-control'
+        .field
+          .form-group
+            = f.label :guest, 'Guest?'
+            = f.check_box :guest
+        .field
+          .form-group
+            = f.label :host, 'Host?'
+            = f.check_box :host
         .actions
           = f.submit 'update', class: 'btn btn-primary'
 
