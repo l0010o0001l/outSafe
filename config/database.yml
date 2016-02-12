@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: outsafe-dev
+  database: "outsafe-dev"
   host: localhost
   pool: 5
   username: outsafe
@@ -10,7 +10,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: outsafe-test
+  database: "outsafe-test"
   host: localhost
   pool: 5
   timeout: 5000
