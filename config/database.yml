@@ -10,7 +10,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: outsafe
+  database: outsafe # leaving this as-is for travis ci
   host: localhost
   pool: 5
   timeout: 5000

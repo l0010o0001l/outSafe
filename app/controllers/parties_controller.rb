@@ -2,6 +2,10 @@ class PartiesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_party, only: [:show, :edit, :update, :destroy]
 
+  def host?
+    current_user.profile.host
+  end
+
   def index
     @parties = Party.all
   end
@@ -10,7 +14,7 @@ class PartiesController < ApplicationController
   end
 
   def new
-    if current_user.profile.host == true
+    if host?
       @party = Party.new
     else
       redirect_to parties_path, notice: 'You need to enable yourself as a host to create parties! Go to Settings.'
