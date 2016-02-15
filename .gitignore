@@ -19,4 +19,3 @@ doc/
 /config/application.yml
 /config/aws.yml
 /config/facebook.yml
-/config/secrets.yml
