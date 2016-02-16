@@ -4,5 +4,6 @@ FactoryGirl.define do
     description "Wouldn't you like to know?"
     address "295 Upshire St. Portland, OR 97205"
     min_age 68
+    association user
   end
 end
