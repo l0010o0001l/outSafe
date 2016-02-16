@@ -8,7 +8,6 @@ OutSafe::Application.configure do
   config.log_level = :debug
   config.active_record.migration_error = :page_load
   config.assets.raise_runtime_errors = true
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Dev/Prod parity
   config.assets.digest = true
@@ -41,7 +40,7 @@ OutSafe::Application.configure do
     address: 'smtp.gmail.com',
     port: '587',
     enable_starttls_auto: true,
-    user_name: 'someuser',
+    user_name: 'someuser', # @todo create mailer account
     password: 'somepass',
     authentication: :plain,
     domain: 'localhost:3000'
