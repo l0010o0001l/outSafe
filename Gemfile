@@ -14,6 +14,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'faker'
 end
 
 group :test do
