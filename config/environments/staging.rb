@@ -28,7 +28,7 @@ OutSafe::Application.configure do
   }
 
   # General Settings
-  config.app_domain = 'yoshimi.herokuapp.com'
+  config.app_domain = 'http://yoshimi.herokuapp.com'
 
   # Email
   config.action_mailer.delivery_method = :smtp
