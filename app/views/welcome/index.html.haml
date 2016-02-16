@@ -24,7 +24,7 @@
             .actions
               = f.submit 'submit', class: 'btn btn-primary'
 
-            .form-group
+            .form-group{style: "margin-top: 20px;"}
               = link_to image_tag("fb-login.png", width: '150'), user_omniauth_authorize_path(:facebook)
 :javascript
   new WOW().init();
