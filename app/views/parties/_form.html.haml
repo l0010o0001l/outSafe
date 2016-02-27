@@ -19,6 +19,11 @@
     .form-group
       = f.label :min_age, 'minimum age'
       = f.number_field :min_age, class: 'form-control'
+  .field
+    .form-group
+      = f.label :description, 'description'
+      = f.text_area :description, class: 'form-control'
   .actions.back
   -# if current_user.profile.host?
-  = f.submit 'create party', class: 'btn btn-primary'
+  = f.submit 'PARTAY!', class: 'btn btn-primary'
+  %hr

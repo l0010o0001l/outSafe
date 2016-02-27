@@ -30,7 +30,7 @@ OutSafe::Application.configure do
   }
 
   # General Settings
-  config.app_domain = 'localhost:3000'
+  config.app_domain = 'http://localhost:3000'
 
   # Email
   config.action_mailer.delivery_method = :smtp

@@ -11,6 +11,9 @@
     %p
       %strong Min age:
       = @party.min_age
+    %p
+      %strong Description:
+      = @party.description
     -# if  current_user is the host, they can edit!
     = link_to 'edit', edit_party_path(@party)
     |

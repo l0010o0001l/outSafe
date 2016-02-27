@@ -7,10 +7,11 @@
       = link_to 'create', new_party_path
     - @parties.each do |party|
       = link_to party do
-        .container-parties
+        .party-container
           %h4.title= party.title
           %p.address= party.address
           %p.age= "Minimum Age: #{party.min_age}"
+          %p= party.description
           -# if current_user is the host!
           -# = link_to 'Edit', edit_party_path(party)
-          -# = link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' }
+          -# = link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?'

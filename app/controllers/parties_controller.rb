@@ -7,7 +7,11 @@ class PartiesController < ApplicationController
   end
 
   def index
-    @parties = Party.all
+    if location.present?
+      @parties = Party.near(location)
+    else
+      @parties = Party.all
+    end
   end
 
   def show
@@ -73,7 +77,7 @@ class PartiesController < ApplicationController
 
   protected
     def party_params
-      params.require(:party).permit(:user_id, :title, :address, :min_age)
+      params.require(:party).permit(:user_id, :title, :address, :min_age, :description)
     end
 
   private
