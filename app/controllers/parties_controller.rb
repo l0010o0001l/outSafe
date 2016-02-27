@@ -91,7 +91,7 @@ class PartiesController < ApplicationController
       if Rails.env.test? || Rails.env.development?
         @location ||= "Portland, OR"
       else
-        @location ||= request.location
+        @location ||= current_user.current_sign_in_ip
       end
     end
 end
