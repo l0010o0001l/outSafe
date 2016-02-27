@@ -7,8 +7,8 @@ class PartiesController < ApplicationController
   end
 
   def index
-    if location.present?
-      @parties = Party.near(location)
+    if params[:location].present?
+      @parties = Party.near(params[:location])
     else
       @parties = Party.all
     end
