@@ -1,14 +1,15 @@
 class PartiesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_party, only: [:show, :edit, :update, :destroy]
+  before_action :location, only: [:index]
 
   def host?
     current_user.profile.host
   end
 
   def index
-    if params[:location].present?
-      @parties = Party.near(params[:location])
+    if location.present?
+      @parties = Party.near(location)
     else
       @parties = Party.all
     end
@@ -86,4 +87,11 @@ class PartiesController < ApplicationController
       @party = Party.find(params[:id])
     end
 
+    def location
+      if Rails.env.test? || Rails.env.development?
+        @location ||= "Portland, OR"
+      else
+        @location ||= request.location
+      end
+    end
 end

@@ -9,18 +9,4 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(user)
     root_path
   end
-
-  # def location
-  #   if params[:location].blank?
-  #     if Rails.env.test? || Rails.env.development?
-  #       @location ||= "Portland, OR"
-  #     else
-  #       @location ||= request.location
-  #     end
-  #   else
-  #     params[:location].each {|l| l = l.to_i } if params[:location].is_a? Array
-  #     @location ||= Geocoder.search(params[:location]).first
-  #     @location
-  #   end
-  # end
 end
