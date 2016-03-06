@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby "2.2.2"
-
 group :production do
   gem 'rails_12factor'
   gem 'newrelic_rpm'
