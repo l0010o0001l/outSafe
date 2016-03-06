@@ -9,11 +9,11 @@
       .navbar-brand
         - if user_signed_in?
           = link_to parties_path do
-            %h4 outSafe
+            %h4 rCrowd
 
         - else
           = link_to '/' do
-            %h4 outSafe
+            %h4 rCrowd
     .collapse.navbar-collapse#collapse-like-crazy
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
