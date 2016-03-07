@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby "2.2.2"
-
 group :production do
   gem 'rails_12factor'
   gem 'newrelic_rpm'
@@ -33,6 +31,7 @@ gem 'figaro'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'geocoder'
+gem 'gmaps4rails'
 gem 'rack-timeout'
 gem 'devise'
 gem 'omniauth-facebook'

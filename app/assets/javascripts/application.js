@@ -15,3 +15,5 @@
 //= require bootstrap.min
 //= require wow.min
 //= require turbolinks
+//= require underscore
+//= require gmaps/google

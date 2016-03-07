@@ -15,3 +15,19 @@
           -# if current_user is the host!
           -# = link_to 'Edit', edit_party_path(party)
           -# = link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?'
+  .col-md-8
+    #map{:style => "width: 1000px; height: 930px;"}
+    %p= "Location: #{@location.inspect}"
+
+%script{:src => "//maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=®ion="}
+%script{:src => "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js"}
+%script{:src => "//google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js", :type => "text/javascript"}
+
+:javascript
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(#{raw @hash.to_json});
+    handler.bounds.extendWith(markers);
+    handler.getMap().setZoom(15);
+    handler.getMap().setCenter(new google.maps.LatLng(#{@lat}, #{@long}));
+  });

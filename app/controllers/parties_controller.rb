@@ -1,17 +1,21 @@
 class PartiesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_party, only: [:show, :edit, :update, :destroy]
-  before_action :location, only: [:index]
+  before_action :current_location, only: [:index]
+  before_action :latitude, only: [:index]
+  before_action :longitude, only: [:index]
 
   def host?
     current_user.profile.host
   end
 
   def index
-    if location.present?
-      @parties = Party.near(location)
+    if current_location.present?
+      @parties = Party.near(current_location)
+      build_map_markers
     else
       @parties = Party.all
+      build_map_markers
     end
   end
 
@@ -87,11 +91,28 @@ class PartiesController < ApplicationController
       @party = Party.find(params[:id])
     end
 
-    def location
+    def current_location
       if Rails.env.test? || Rails.env.development?
         @location ||= "Portland, OR"
       else
         @location ||= request.location.city
+      end
+    end
+
+    def latitude
+      coor = Geocoder.coordinates(current_location)
+      @lat = coor[0]
+    end
+
+    def longitude
+      coor = Geocoder.coordinates(current_location)
+      @long = coor[1]
+    end
+
+    def build_map_markers
+      @hash = Gmaps4rails.build_markers(@parties) do |party, marker|
+        marker.lat party.latitude
+        marker.lng party.longitude
       end
     end
 end
