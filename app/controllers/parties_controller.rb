@@ -10,6 +10,10 @@ class PartiesController < ApplicationController
   end
 
   def index
+    parties_near_location
+  end
+
+  def parties_near_location
     if current_location.present?
       @parties = Party.near(current_location)
       build_map_markers
